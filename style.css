@@ -48,3 +48,48 @@ body {
 .food {
     fill: #e74c3c; /* Röd färg på maten */
 }
+
+
+body {
+    background-color: #2c3e50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+    font-family: sans-serif;
+}
+
+#game-board {
+    width: 400px;
+    height: 400px;
+    background-color: #000;
+    border: 5px solid #ecf0f1;
+    position: relative; /* Gör att vi kan placera delar inuti exakt */
+}
+
+/* Gemensam stil för ormens delar */
+.snake-part {
+    width: 18px;
+    height: 18px;
+    background-color: #2ecc71;
+    border: 1px solid #27ae60;
+    position: absolute;
+}
+
+/* Gör huvudet lite annorlunda */
+.head {
+    background-color: #27ae60;
+    border-radius: 4px;
+}
+
+/* Maten */
+.food {
+    width: 18px;
+    height: 18px;
+    background-color: #e74c3c;
+    border-radius: 50%; /* Gör maten rund */
+    position: absolute;
+    box-shadow: 0 0 10px #e74c3c;
+}
