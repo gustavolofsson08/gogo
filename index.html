@@ -2,25 +2,23 @@
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Spelet</title>
+    <title>Snake - Bara CSS/HTML</title>
 </head>
 <body>
 
     <div id="game-container">
-        <h1>Snake</h1>
+        <h1>Snake (CSS Design)</h1>
         
-        <div id="score-board">
-            Poäng: <span id="score">0</span>
+        <div id="game-board">
+            <div class="snake-part head" style="top: 100px; left: 100px;"></div>
+            <div class="snake-part" style="top: 100px; left: 80px;"></div>
+            <div class="snake-part" style="top: 100px; left: 60px;"></div>
+            
+            <div class="food" style="top: 200px; left: 240px;"></div>
         </div>
 
-        <canvas id="gameCanvas" width="400" height="400"></canvas>
-
-        <div id="controls">
-            <p>Använd piltangenterna för att styra!</p>
-            <button id="start-btn">Starta spelet</button>
-        </div>
+        <p>Här ser vi designen av ormen och maten!</p>
     </div>
 
-    </body>
+</body>
 </html>
