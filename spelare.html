@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golf Stats Tracker - Spelare</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⛳ Golf Stats Tracker</h1>
+            <p>Hantera dina spelare</p>
+        </header>
+
+        <nav class="tabs">
+            <a href="index.html" class="tab-btn">Hem</a>
+            <a href="spelare.html" class="tab-btn active">Spelare</a>
+            <a href="rundor.html" class="tab-btn">Rundor</a>
+            <a href="matchspel.html" class="tab-btn">Matchspel</a>
+            <a href="statistik.html" class="tab-btn">Statistik</a>
+        </nav>
+
+        <section class="tab-content active">
+            <div class="page-header">
+                <h2>👥 Spelare</h2>
+                <p class="page-description">Lägg till och hantera alla golfspelare i din grupp. Du kan ange varje spelares namn och aktuella handicap.</p>
+            </div>
+
+            <div class="add-player-section">
+                <h3>Lägg till ny spelare</h3>
+                <form id="add-player-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="player-name">
+                                <span class="label-icon">👤</span>
+                                Spelarens namn:
+                            </label>
+                            <input 
+                                type="text" 
+                                id="player-name" 
+                                placeholder="t.ex. Anna Andersson" 
+                                required
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="player-hcp">
+                                <span class="label-icon">🎯</span>
+                                Handicap:
+                            </label>
+                            <input 
+                                type="number" 
+                                id="player-hcp" 
+                                step="0.1" 
+                                placeholder="t.ex. 18.5"
+                                min="0"
+                                max="54"
+                                required
+                            >
+                            <small class="form-hint">Ange handicap mellan 0-54</small>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-icon">➕</span>
+                        Lägg till spelare
+                    </button>
+                </form>
+            </div>
+
+            <div class="players-section">
+                <div class="section-header">
+                    <h3>Registrerade spelare</h3>
+                    <span id="player-count" class="count-badge">0 spelare</span>
+                </div>
+                <div id="players-list" class="players-grid"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
