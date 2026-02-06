@@ -567,3 +567,20 @@ form {
         padding: 20px;
     }
 }
+
+
+.players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.empty-message {
+    text-align: center;
+    color: #a4b0be;
+    padding: 40px;
+    background: #f1f2f6;
+    border-radius: 10px;
+    grid-column: 1 / -1;
+}
