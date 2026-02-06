@@ -17,10 +17,21 @@ function initializeEventListeners() {
         btn.addEventListener('click', () => switchTab(btn.dataset.tab));
     });
 
-    // Form submissions
-    document.getElementById('add-player-form').addEventListener('submit', addPlayer);
-    document.getElementById('add-round-form').addEventListener('submit', addRound);
-    document.getElementById('add-match-form').addEventListener('submit', addMatch);
+    // Form submissions - only add listeners if elements exist
+    const playerForm = document.getElementById('add-player-form');
+    if (playerForm) {
+        playerForm.addEventListener('submit', addPlayer);
+    }
+    
+    const roundForm = document.getElementById('add-round-form');
+    if (roundForm) {
+        roundForm.addEventListener('submit', addRound);
+    }
+    
+    const matchForm = document.getElementById('add-match-form');
+    if (matchForm) {
+        matchForm.addEventListener('submit', addMatch);
+    }
 }
 
 // Tab switching
@@ -209,6 +220,8 @@ function updateAllDisplays() {
 // Display players
 function displayPlayers() {
     const container = document.getElementById('players-list');
+    if (!container) return; // Exit if element doesn't exist
+    
     const countBadge = document.getElementById('player-count');
     
     if (countBadge) {
@@ -232,6 +245,7 @@ function displayPlayers() {
 // Display rounds
 function displayRounds() {
     const container = document.getElementById('rounds-list');
+    if (!container) return; // Exit if element doesn't exist
     
     if (rounds.length === 0) {
         container.innerHTML = '<div class="empty-message">Inga rundor registrerade ännu.</div>';
@@ -258,6 +272,7 @@ function displayRounds() {
 // Display matches
 function displayMatches() {
     const container = document.getElementById('matches-list');
+    if (!container) return; // Exit if element doesn't exist
     
     if (matches.length === 0) {
         container.innerHTML = '<div class="empty-message">Inga matchspel registrerade ännu.</div>';
@@ -292,7 +307,7 @@ function updatePlayerSelects() {
         document.getElementById('round-player'),
         document.getElementById('match-player1'),
         document.getElementById('match-player2')
-    ];
+    ].filter(select => select !== null); // Only include elements that exist
 
     selects.forEach(select => {
         const currentValue = select.value;
@@ -315,6 +330,7 @@ function updateStatistics() {
 // Update best raw score ranking
 function updateBestRawScore() {
     const container = document.getElementById('best-raw-score');
+    if (!container) return; // Exit if element doesn't exist
     
     if (rounds.length === 0) {
         container.innerHTML = '<div class="empty-message">Inga rundor att visa.</div>';
@@ -347,6 +363,7 @@ function updateBestRawScore() {
 // Update best net score ranking
 function updateBestNetScore() {
     const container = document.getElementById('best-net-score');
+    if (!container) return; // Exit if element doesn't exist
     
     if (rounds.length === 0) {
         container.innerHTML = '<div class="empty-message">Inga rundor att visa.</div>';
@@ -379,6 +396,7 @@ function updateBestNetScore() {
 // Update match play ranking
 function updateMatchRanking() {
     const container = document.getElementById('match-ranking');
+    if (!container) return; // Exit if element doesn't exist
     
     if (matches.length === 0) {
         container.innerHTML = '<div class="empty-message">Inga matchspel att visa.</div>';
@@ -427,6 +445,7 @@ function updateMatchRanking() {
 // Update average scores
 function updateAverageScores() {
     const container = document.getElementById('average-scores');
+    if (!container) return; // Exit if element doesn't exist
     
     if (rounds.length === 0) {
         container.innerHTML = '<div class="empty-message">Inga rundor att visa.</div>';
